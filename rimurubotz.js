@@ -129,30 +129,29 @@ if (cekUser("id", sender) !== sender) return Notdaftar()
 rimurubotz.sendMessage(from, {image:{url: "https://i.ibb.co/yhRDQ1V/698308-1.jpg"},
 mentions:[sender],
 caption: `> Haloo @${sender.split("@")[0]}!!
-╭━─━•[ *${namabot}* ]⊱
+*${namabot}* 
 ┃• *User* : @${sender.split("@")[0]}
 ┃• *Hit* : ${cekUser("hit", sender)}
 ┃• *Emote* : ${cekUser("emote", sender)}
 ┃• *Star* : ${cekUser("star", sender)}⭐
 ┃• *Ban* : ${cekUser("ban", sender)}
 ┃• *Premium* : ${cekUser("premium", sender)}
-╰━─━─━─━─━─━─━─•
-• *Catatan* : Untuk Informasi bot ini kamu bisa kunjungi website ini! https://md-devs.xyz/botz`,
+`,
 buttons: [
-{buttonId: prefix + 'listmenu', buttonText: {displayText: 'LISTMENU-BOT'}, type: 1}
+{buttonId: prefix + 'listmenu', buttonText: {displayText: 'M E N U'}, type: 1}
 ], headerType: 4
 },{quoted:nay1})
 break
 case 'cekuser': case 'cekprofile':
 if (cekUser("id", sender) !== sender) return Notdaftar()
-reply(`╭━─━•[ *${namabot}* ]⊱
+reply(`*${namabot}* 
 ┃• *User* : @${sender.split("@")[0]}
 ┃• *Hit* : ${cekUser("hit", sender)}
 ┃• *Emote* : ${cekUser("emote", sender)}
 ┃• *Star* : ${cekUser("star", sender)}⭐
 ┃• *Ban* : ${cekUser("ban", sender)}
 ┃• *Premium* : ${cekUser("premium", sender)}
-╰━─━─━─━─━─━─━─•`)
+`)
 break
 case 'listmenu': case 'listhelp':
 if (cekUser("id", sender) !== sender) return Notdaftar()
@@ -178,7 +177,7 @@ case 'topstar':
 if (cekUser("id", sender) !== sender) return Notdaftar()
 user.sort((a, b) => (a.star < b.star) ? 1 : -1)
 let topstar1 = 0
-var top2 = "[ *TOPSTAR* ]\n"
+var top2 = "*TOPSTAR*\n"
 var top3 = []
 try{
 for (let z = 0; z < 10; z++) {topstar1++
@@ -192,7 +191,7 @@ case 'tophit':
 if (cekUser("id", sender) !== sender) return Notdaftar()
 user.sort((a, b) => (a.hit < b.hit) ? 1 : -1)
 let tophit1 = 0
-var top2 = "[ *TOPHIT* ]\n"
+var top2 = "*TOPHIT*\n"
 var top3 = []
 try{
 for (let z = 0; z < 10; z++) {tophit1++
@@ -252,14 +251,10 @@ case 'daftar': case 'login':
 if (cekUser("id", sender) !== null) return reply("Kamu sudah terdaftar sebelumnya")
 user.push({ id: sender, emote: "❤", timers: moment().format('LLL'), hit: 0, star: 1, afk: false, alasan:false, ban: false, premium: false, jawaban: false })
 fs.writeFileSync('./lib/data.json', JSON.stringify(user, null, 2))
-reply(`[ *NEW INFO* ] 
+reply(`*VERIFIED* 
 • *User* : ${sender.split("@")[0]}
-• *Star* : ⭐[1]
-• *Hit* : 0
-• *Premium* : false
-• *Ban* : false
-• *Afk* : false
-~> [🤖] : Selamat @${sender.split("@")[0]} Anda berhasil bergabung ke database bot pada ${moment().format('LLL')}`)
+
+🤖 : Selamat @${sender.split("@")[0]} Anda berhasil bergabung ke database bot pada ${moment().format('LLL')}`)
 break
 
 case 'delete':
@@ -295,13 +290,13 @@ if (!isGroupAdmins) return only("isGroupAdmins", rimurubotz, from)
 if (!isBotGroupAdmins) return only("isBotGroupAdmins", rimurubotz, from)
 if (!q) return reply("Masukkan text")
 var nyz = [sender]
-var nyzz = `[ *TAG-ALL* ]\n• *Dari* : @${sender.split("@")[0]}\n• *Time* : ${time}\n• *Pesan* : ${q}\n\n• *Tag-All(Admin-Member)* :\n`
+var nyzz = `*ATTENTION*\n• *Dari* : @${sender.split("@")[0]}\n• *Time* : ${time}\n• *Pesan* : ${q}\n\n• *FOR ALL(Admin-Member)* :\n`
 Object.keys(groupMembers).forEach((i) => { 
 nyz.push(groupMembers[i].id)
 nyzz += `•> @${groupMembers[i].id.split("@")[0]}\n`
 })
 if (command == "hidetag"){
-rimurubotz.sendMessage(from, {text: `[ *HIDETAG* ]\n• *Dari* : @${sender.split("@")[0]}\n• *Time* : ${time}\n• *Pesan* : ${q}`, mentions:nyz},{quoted:nay1})
+rimurubotz.sendMessage(from, {text: `*HIDETAG*\n• *Dari* : @${sender.split("@")[0]}\n• *Time* : ${time}\n• *Pesan* : ${q}`, mentions:nyz},{quoted:nay1})
 } else { rimurubotz.sendMessage(from, {text: nyzz, mentions:nyz},{quoted:nay1}) }
 break
 
@@ -435,7 +430,7 @@ if (cekUser("id", sender) == null) return Notdaftar()
 if (!isGroup) return only("isGroup", rimurubotz, from)
 if (!isGroupAdmins) return only("isGroupAdmins", rimurubotz, from)
 if (!isBotGroupAdmins) return only("isBotGroupAdmins", rimurubotz, from)
-if (!q) return rimurubotz.sendMessage(from, {text: "[ *WELCOME* ]", buttonText: "OPEN", sections: [{title: "PILIH", rows: [{title: "WELCOME (AKTIF)", rowId: prefix + command + " aktif"},{title: "WELCOME (NONAKTIF)", rowId: prefix + command + " nonaktif"} ]}]})
+if (!q) return rimurubotz.sendMessage(from, {text: "*WELCOME*", buttonText: "OPEN", sections: [{title: "PILIH", rows: [{title: "WELCOME (AKTIF)", rowId: prefix + command + " aktif"},{title: "WELCOME (NONAKTIF)", rowId: prefix + command + " nonaktif"} ]}]})
 if (q == "aktif") {
 if (dataOnly("welcome", "cek", from) == from) return reply("welcome pada group ini telah aktif sebelumnya")
 only("sukses", rimurubotz, from)
@@ -550,7 +545,7 @@ download("sticker", "toimgg").then(x => { sendMedia("image", "./media/toimgg.web
 break
 case 'script': 
 if (cekUser("id", sender) == null) return Notdaftar()
-reply("https://youtube.com/channel/UCeQaKIQQhDNHMOq_odQh5Sw")
+reply("YTTA")
 break
 case 'confes': case 'menfes': case 'confess': case 'menfess':
 if (cekUser("id", sender) == null) return Notdaftar()
@@ -755,7 +750,7 @@ case 'happymod':
 if (cekUser("id", sender) == null) return Notdaftar()
 if (!q) return reply("Masukkan nama Apk")
 var nyz = await api.search.happymod(q)
-reply(await getResult("[ *HAPPYMOD* ]", ["Title","Url"],
+reply(await getResult("*HAPPYMOD*", ["Title","Url"],
 [nyz.result[0].title, nyz.result[0].link]))
 break
 case 'carigrup': case 'carigrub':
@@ -794,7 +789,7 @@ if (cekUser("id", sender) == null) return Notdaftar()
 if (!q) return reply("Masukkan nama user instagram")
 var nyz = await api.search.igstalk(q) 
 console.log(nyz)
-reply(await getResult("[ *STALKIG* ]",
+reply(await getResult("*STALKIG*",
 ["url","fullname","private","verified","bio","follower","following","conneted_fb","videotimeline","timeline","savedmedia","collections"],
 [nyz.data.url, nyz.data.fullname, nyz.data.private, nyz.data.verified, nyz.data.bio, nyz.data.follower, nyz.data.following, nyz.data.conneted_fb, nyz.data.videotimeline, nyz.data.timeline, nyz.data.savedmedia, nyz.data.collections ]))
 break
@@ -809,27 +804,27 @@ case 'pinterest':
 if (cekUser("id", sender) == null) return Notdaftar()
 if (!q) return reply("Masukkan kata")
 var nyz = await api.search.pin(q) 
-sendMedia("image", nyz[Math.floor(Math.random() * nyz.length)], "😀")
+sendMedia("image", nyz[Math.floor(Math.random() * nyz.length)], "Result")
 break
 
 case 'imagesketch': case 'shit': case 'burn': case 'blur': case 'greyscale': case 'pixelate': case 'removebg': case 'beautiful': case 'trash': case 'jail': case 'wanted': case 'rip': case 'gay': case 'invert':
 if (cekUser("id", sender) == null) return Notdaftar()
 if (isMedia || isQuotedImage) { 
 only("proses", rimurubotz, from)
-sendMedia("image", `https://pecundang.herokuapp.com/api/${command}?url=${await download("imageUrl","makers")}`, "😀")
+sendMedia("image", `https://pecundang.herokuapp.com/api/${command}?url=${await download("imageUrl","makers")}`, "Results")
 } else { reply("Tag/Kirim Image dengan caption " + prefix + command)}
 break
 
 case 'imagesketchme': case 'shitme': case 'burnme': case 'blurme': case 'greyscaleme': case 'pixelateme': case 'removebgme': case 'beautifulme': case 'trashme': case 'jailme': case 'wantedme': case 'ripme': case 'gayme': case 'invertme':
 if (cekUser("id", sender) == null) return Notdaftar()
 only("proses", rimurubotz, from)
-sendMedia("image", `https://pecundang.herokuapp.com/api/${command.split("me")[0]}?url=${await download("PPUrl", sender)}`, "😀")
+sendMedia("image", `https://pecundang.herokuapp.com/api/${command.split("me")[0]}?url=${await download("PPUrl", sender)}`, "Results")
 break
 case 'imagesketchtag': case 'shittag': case 'burntag': case 'blurtag': case 'greyscaletag': case 'pixelatetag': case 'removebgtag': case 'beautifultag': case 'trashtag': case 'jailtag': case 'wantedtag': case 'riptag': case 'gaytag': case 'inverttag':
 if (cekUser("id", sender) == null) return Notdaftar()
 if (Tag() == "") return reply("tag Orang yang mau anda Jadikan objek")
 only("proses", rimurubotz, from)
-sendMedia("image", `https://pecundang.herokuapp.com/api/${command.split("tag")[0]}?url=${await download("PPUrl", Tag()[0])}`, "😀")
+sendMedia("image", `https://pecundang.herokuapp.com/api/${command.split("tag")[0]}?url=${await download("PPUrl", Tag()[0])}`, "Results")
 break
 
 
@@ -915,7 +910,7 @@ if (command == "sakithati"){ var emostick2 = "💔💔💔💔💔💔💔💔�
 var emostick1 = "https://i.ibb.co/0Yx0mWQ/sakithati.webp" } 
 if (command == "terimakasih"){ var emostick2 = "🙏🏼🙏🏼🙏🏼🙏🏼🙏🏼🙏🏼🙏🏼🙏🏼🙏🏼🙏🏼"
 var emostick1 = "https://i.ibb.co/b6FGvPW/terimakasih.webp" } 
-rimurubotz.sendMessage(Tag()[0], {sticker:{url: emostick1}},{quoted: { key: {fromMe: false, participant: `${botNumber}`, ...(from ? { remoteJid: "status@broadcast" } : {})},message: {"conversation": "[ *EMOSTICK(SEND)* ]\n" + emostick2}}  })
+rimurubotz.sendMessage(Tag()[0], {sticker:{url: emostick1}},{quoted: { key: {fromMe: false, participant: `${botNumber}`, ...(from ? { remoteJid: "status@broadcast" } : {})},message: {"conversation": "*EMOSTICK(SEND)*\n" + emostick2}}  })
 break 
 case 'cantik': case 'ganteng': case 'jelek': case 'burik': case 'ireng': case 'kaya': case 'miskin': case 'babi': case 'monyet': 
 case 'bego': case 'beban': case 'pintar': case 'bodoh': case 'pendek': case 'tinggi': case 'kurus': case 'gemuk':  
@@ -950,14 +945,14 @@ sendMedia("vn",`https://md-devs.xyz/audio/${command}.m4a`)
 break
 case 'asahotak': case 'susunkata': case 'tebakkata': case 'tebaktebakan': case 'tebakbendera': case 'tebakkimia': case 'tekateki': case 'siapaaku': case 'tebakkalimat': case 'tebaklirik':
 if (cekUser("id", sender) !== sender) return Notdaftar()
-if (!q && cekUser("jawaban", sender) !== false) { return reply("Kamu sedang Bermain game sebelumnya, ingin hapus sesi game? ketik #dellsesi")}
-if (q && cekUser("jawaban", sender) == false) return reply("Game Tersebut telah berakhir, Atau game Tersebut adalah milik orang lain, Ayo memulai game sendiri")
+if (!q && cekUser("jawaban", sender) !== false) { return reply("⌛Kamu sedang Bermain game sebelumnya, ingin hapus sesi game? ketik .dellsesi")}
+if (q && cekUser("jawaban", sender) == false) return reply("❎Game Tersebut telah berakhir, Atau game Tersebut adalah milik orang lain, Ayo memulai game sendiri")
 if (!q && cekUser("jawaban", sender) == false) { 
 var nyz1 = await fetchJson(`https://md-devs.xyz/api/game?text=${command}`)
 console.log(nyz1.jawaban)
 setUser("±jawaban", sender, nyz1.jawaban)
 return rimurubotz.sendMessage(from, {
-text: `[ *${command}* ]\n` + nyz1.soal,
+text: `*${command}*\n` + nyz1.soal,
 buttonText: "OPEN",
 sections: [{rows:[
 {title: nyz1.list_jawaban.a, rowId: prefix + command + " " + nyz1.list_jawaban.a},
@@ -980,14 +975,14 @@ setUser("±jawaban", sender, false)
 return setUser("+star", sender, 1)
 }
 if (q !== cekUser("jawaban", sender)) {
-reply(`[ *${command}* ]\nJawaban kamu *SALAH*, Kamu mendapatkan 0 Star, Ingin bermain lagi? Gunakan command ${prefix + command}`)
+reply(`[ *${command}* ]\nJawaban kamu ❎*SALAH*, Kamu mendapatkan 0 Star, Ingin bermain lagi? Gunakan command ${prefix + command}`)
 return setUser("±jawaban", sender, false)
 }
 }
 break
 case 'dellsesi': case 'nyerah':
 if (cekUser("jawaban", sender) == false) return reply("Kamu belum memainkan game sebelumnya")
-reply("Sukses menghapus keseluruhan database game kamu")
+reply("✅ Sukses menghapus keseluruhan database game kamu")
 setUser("±jawaban", sender, false)
 break
 default:  
@@ -1024,7 +1019,7 @@ if (budy == "Assalamualaikum" || budy == "assalamualaikum"){
 reply("Waalaikumsalam❤")
 } // AUTORESPODER 
 if (budy == "bot" || budy == "Bot" || budy == "BOT"  || budy == "p" || budy == "P") {
-reply(`[ *BOT-NOTIF* ]\nYa? *${namabot}* Disini, Ada yang bisa saya bantu? Gunakan command #menu untuk melihat apa saja yang bisa saya lakukan,\n• *Owner* : Bot ini di buat dengan ❤ Oleh ${namaowner}`)
+reply(`*BOT-NOTIF*\nYa? *${namabot}* Disini, Ada yang bisa saya bantu? Gunakan command .menu untuk melihat apa saja yang bisa saya lakukan,\n• *Owner* : Bot by ${namaowner}`)
 }
 
 
