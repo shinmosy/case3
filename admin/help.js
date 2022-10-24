@@ -6,19 +6,19 @@ var menu1 = []
 var menu2 = ""
 Object.keys(x).forEach((i) => { menu1.push(x[i]) }) 
 Object.keys(menu1).forEach((i) => { 
-menu2 += `┃• *${z + menu1[i]}*\n` }) 
-var menu3 = `╭━─━•[ *${y}* ]⊱\n${menu2}╰━─━─━─━─━─━─━─•`
+menu2 += ` • *${z + menu1[i]}*\n` }) 
+var menu3 = ` *${y}* \n${menu2}`
 return menu3
 }
 const help = (prefix, reply, cekUser, namabot, sender) => {
-var help1 = `╭━─━•[ *${namabot}* ]⊱
-┃• *User* : @${sender.split("@")[0]}
-┃• *Hit* : ${cekUser("hit", sender)}
-┃• *Emote* : ${cekUser("emote", sender)}
-┃• *Star* : ${cekUser("star", sender)}⭐
-┃• *Ban* : ${cekUser("ban", sender)}
-┃• *Premium* : ${cekUser("premium", sender)}
-╰━─━─━─━─━─━─━─•
+var help1 = `*${namabot}* 
+ • *User* : @${sender.split("@")[0]}
+ • *Hit* : ${cekUser("hit", sender)}
+ • *Emote* : ${cekUser("emote", sender)}
+ • *Star* : ${cekUser("star", sender)}⭐
+ • *Ban* : ${cekUser("ban", sender)}
+ • *Premium* : ${cekUser("premium", sender)}
+
 ${menu(listmenu.simple, "SIMPLE", prefix)}
 ${menu(listmenu.group, "GROUP", prefix)}
 ${menu(listmenu.owner, "OWNER", prefix)}
@@ -41,12 +41,7 @@ ${menu(listmenu.listaudio, "LISTAUDIO", prefix)}
 ${menu(listmenu.userbot, "USERBOT", prefix)}
 ${menu(listmenu.games, "GAMES", prefix)}`
 // JANGAN UBAH/HAPUS THX TO🤥
-var cr = `╭━─━•[ *THX-TO* ]⊱
-┃•  *ADHIRAJ SINGH*
-┃•  *RIMURUBOTZ*
-┃•  *LOLI KILLERS*
-┃•  *LORD R1YNZ*
-╰━─━─━─━─━─━─━─•`
+var cr = `SiBear | 1.0.0`
 return help1
 }
 
